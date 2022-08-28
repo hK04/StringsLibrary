@@ -1,9 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "headers.hpp"
+
 int puts(const char* str){
     const char* end_of_str = str;
-//проверка на EOF
+
+    __assert__(str != NULL);
+    __assert__(*str != EOF);
+
     while (*end_of_str != '\0' && *end_of_str != EOF){
         putchar(*end_of_str);
         end_of_str++;
