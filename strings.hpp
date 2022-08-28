@@ -12,4 +12,8 @@ char* strncat (char* destination, const char* source, int num);
 
 char* fgets(char* str, int num, FILE* stream);
 
+const char* strchr(const char* str, int character);
+
+int strcmp(const char* str1, const char* str2);
+
 char* strdup(const char *str1);

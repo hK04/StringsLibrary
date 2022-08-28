@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 #include "strings.hpp"
+#include "test.hpp"
 
-//Test of functions
 int main(void){
     const char Slaves[] = "A moy boychick";
     char based[80];
@@ -16,8 +16,7 @@ int main(void){
 
     //Test Section
     puts(Slaves);//->
-    printf("%d", strlen(Slaves));//->
-    putchar('\n');
+    print_int_output_of_test(strlen("A moy boychick"));
     strcpy(cringe, Slaves);//->
     puts(cringe);
     strncpy(cringe, Slaves, 5);//->
@@ -33,11 +32,12 @@ int main(void){
     strncat(porridge, gigachad, 6); //example taken from original documentation 
     puts(porridge); //->
 
-    
-    fgets(GachiString, 10, AssFile); //example taken from original documentation 
+    print_string_output_of_test(fgets(GachiString, 10, AssFile)); //example taken from original documentation 
     fclose(AssFile); //example taken from original documentation 
-    puts(GachiString); //-> 
     
+    print_char_pointer_output_of_test(strchr(GachiString, 'Y'));
+    print_int_output_of_test(strcmp("BASED", "BASED"));
+    print_int_output_of_test(strcmp("CRINGE", "BASED"));
 
     char* CringedString = strdup("Really Crindged String");
     puts(CringedString); //->

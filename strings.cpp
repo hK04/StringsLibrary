@@ -3,8 +3,8 @@
 
 int puts(const char* str){
     const char* end_of_str = str;
-
-    while (*end_of_str != '\0'){
+//проверка на EOF
+    while (*end_of_str != '\0' && *end_of_str != EOF){
         putchar(*end_of_str);
         end_of_str++;
     }
@@ -86,9 +86,26 @@ char* fgets(char* str, int num, FILE* stream){
     return original;
 }
 
+const char* strchr(const char* str, int character){
+    while (*str != '\0'){
+        if (*str == (char) character)
+            return str;
+        str++;
+    }
+    return NULL;
+}
+
+int strcmp(const char* str1, const char* str2){
+    while (*str1 != '\0' && *str2 != '\0')
+        if (!(*str1++ == *str2++))
+            return 0;
+    return 1;
+}
+
 char* strdup(const char* str1){
-    unsigned int size = sizeof(*str1);
-    char* pointer = (char*) malloc(size);
+    char* pointer = (char*) malloc(sizeof(*str1) * strlen(str1));
+    if (pointer == NULL)
+        return NULL;
     char* str2 = pointer;
 
     while (*str1 != '\0')
